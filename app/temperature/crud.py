@@ -12,3 +12,7 @@ def create_temperature(db: Session, temperature: schemas.TemperatureCreate):
 
 def get_temperatures(db: Session):
     return db.query(models.Temperature).all()
+
+
+def get_temperatures_by_city_id(db: Session, city_id: int):
+    return db.query(models.Temperature).filter(models.Temperature.city_id == city_id).all()
